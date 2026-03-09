@@ -34,7 +34,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 }
 
 /* =========================================
-   ANIMACIONES GLOBALES (VIDA Y MOVIMIENTO)
+   ANIMACIONES GLOBALES
    ========================================= */
 @keyframes float {
     0% { transform: translateY(0px); }
@@ -52,6 +52,39 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
+}
+
+/* =========================================
+   INTRO ANIMATION SCREEN (SPLASH SCREEN)
+   ========================================= */
+.intro-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: #111111; /* Fondo muy oscuro, solemne */
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s;
+}
+
+.intro-img {
+    position: absolute;
+    max-width: 300px; /* Tamaño de la intro */
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 2s ease-in-out, transform 3s ease-in-out;
+}
+
+.show-intro {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.hide-screen {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* =========================================
@@ -75,7 +108,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
     background-size: 20px 20px;
     opacity: 0.5;
-    animation: zoom-slow 20s infinite alternate ease-in-out; /* Fondo dinámico */
+    animation: zoom-slow 20s infinite alternate ease-in-out;
 }
 
 .header-content {
@@ -94,7 +127,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 .header-logo {
     width: 220px;
     height: 220px;
-    animation: float 6s ease-in-out infinite; /* Logo flotando */
+    animation: float 6s ease-in-out infinite;
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
 }
 
@@ -120,48 +153,21 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 }
 
 /* =========================================
-   MODAL DE VIDEO
-   ========================================= */
-.video-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.98); z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.5s ease;
-}
-.video-overlay.hidden { opacity: 0; visibility: hidden; }
-.video-container {
-    position: relative; max-width: 90%; max-height: 90%; width: 900px;
-    background: #000; border-radius: 4px; overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-    transform: scale(1); transition: transform 0.4s ease;
-}
-.video-container.closing { transform: scale(0.95); opacity: 0; }
-.welcome-video { width: 100%; display: block; }
-.video-close-btn, .video-mute-btn {
-    position: absolute; top: 20px; background: transparent; border: 1px solid rgba(255,255,255,0.3);
-    color: white; font-size: 20px; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; z-index: 10; display: flex; align-items: center; justify-content: center;
-}
-.video-close-btn { right: 20px; } .video-mute-btn { left: 20px; }
-.video-close-btn:hover, .video-mute-btn:hover { background: white; color: black; transform: scale(1.1); }
-
-.skip-video-btn {
-    position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
-    background: transparent; color: white; border: 2px solid rgba(255,255,255,0.6);
-    padding: 14px 36px; border-radius: 50px; cursor: pointer; font-size: 14px; letter-spacing: 2px; transition: all 0.4s ease;
-}
-.skip-video-btn:hover {
-    background: white; color: var(--primary); transform: translateX(-50%) translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255,255,255,0.2);
-}
-
-/* =========================================
    NAVEGACIÓN 
    ========================================= */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--primary);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
 .nav-container {
     display: flex; justify-content: space-between; align-items: center;
     max-width: 1280px; margin: 0 auto; padding: 1rem 24px;
-    background: var(--primary);
 }
+
 .nav-brand { display: flex; align-items: center; gap: 1rem; color: white; }
 .nav-logo-img { width: 60px; height: 60px; transition: transform 0.3s; }
 .nav-logo-img:hover { transform: rotate(10deg) scale(1.1); }
@@ -201,13 +207,13 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .card:hover, .leader-card:hover, .guardada-card:hover {
-    transform: translateY(-12px); /* Salta más al pasar el mouse */
+    transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(74, 52, 103, 0.15);
 }
 .card h3 { color: var(--text-dark); margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; }
 
 /* =========================================
-   LÍDERES (CAPATACES) - CORRECCIÓN DE FOTOS
+   LÍDERES (CAPATACES)
    ========================================= */
 .leader-card {
     text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
@@ -217,19 +223,17 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     width: 150px; height: 150px; border-radius: 50%;
     margin: 0 auto 1.5rem; flex-shrink: 0;
     border: 3px solid var(--primary); padding: 4px; background: white;
-    /* Sombras para dar profundidad */
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     transition: transform 0.5s ease;
 }
 .leader-card:hover .leader-photo {
-    transform: scale(1.1) rotate(3deg); /* Foto animada al hover */
+    transform: scale(1.1) rotate(3deg);
 }
-/* AQUI SE SOLUCIONA EL PROBLEMA DE FOTOS ESTIRADAS */
 .leader-photo img { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Evita que se aplasten */
-    object-position: center top; /* Enfoca el rostro si la foto es alta */
+    object-fit: cover; 
+    object-position: center top; 
     border-radius: 50%; 
     display: block;
 }
@@ -253,12 +257,12 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     transition: transform 0.8s ease; 
 }
 .history-with-photo:hover .history-photo img {
-    transform: scale(1.08); /* Zoom sutil al ver la historia */
+    transform: scale(1.08);
 }
 .photo-caption { margin-top: 1rem; font-style: italic; color: var(--text-muted); font-size: 0.9rem; font-family: 'Lora', serif; text-align: center; }
 
 /* =========================================
-   CARRUSEL (GALERÍA) - CORRECCIÓN TOTAL
+   CARRUSEL (GALERÍA)
    ========================================= */
 .carousel-container { 
     position: relative; max-width: 900px; margin: 0 auto; 
@@ -269,25 +273,24 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     display: flex; 
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
 }
-/* Solución a las fotos deformadas del carrusel */
 .carousel-slide { 
-    flex: 0 0 100%; /* Obliga a cada slide a medir 100% exacto */
+    flex: 0 0 100%; 
     width: 100%;
     height: 500px; 
     position: relative; 
-    text-decoration: none; /* Porque son etiquetas <a> */
+    text-decoration: none; 
     display: block;
     overflow: hidden;
 }
 .carousel-slide img { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* Las imágenes cubren sin estirarse */
+    object-fit: cover; 
     object-position: center;
-    transition: transform 10s linear; /* Movimiento de cámara lentísimo */
+    transition: transform 10s linear;
 }
 .carousel-slide:hover img {
-    transform: scale(1.15); /* Efecto Ken Burns vivo */
+    transform: scale(1.15);
 }
 .slide-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
@@ -302,7 +305,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 .slide-overlay p { font-size: 1rem; margin-bottom: 1rem; opacity: 0.9; }
 .click-indicator {
     display: inline-block; background: var(--primary); padding: 8px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; font-family: 'Montserrat', sans-serif;
-    animation: pulse-glow 2s infinite; /* Botón parpadeante */
+    animation: pulse-glow 2s infinite; 
 }
 
 .carousel-controls { text-align: center; margin-top: 2rem; }
@@ -312,7 +315,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 .carousel-btn:hover { background: var(--secondary); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(106, 76, 147, 0.3); }
 .carousel-indicators { display: flex; justify-content: center; gap: 12px; margin-top: 1.5rem; }
 .indicator { width: 40px; height: 4px; background: #ddd; cursor: pointer; transition: 0.3s; border-radius: 2px;}
-.indicator.active { background: var(--primary); width: 60px; } /* Animación de barra larga */
+.indicator.active { background: var(--primary); width: 60px; } 
 
 /* =========================================
    CONTADORES
@@ -351,7 +354,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 .guardada-card:nth-child(even) .guardada-content { order: 1; }
 .guardada-photo { overflow: hidden; border-radius: 4px; }
 .guardada-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-.guardada-card:hover .guardada-photo img { transform: scale(1.1); } /* Zoom animado */
+.guardada-card:hover .guardada-photo img { transform: scale(1.1); } 
 .guardada-content h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
 
 /* =========================================
@@ -407,7 +410,7 @@ body.nav-open { overflow: hidden; }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
-    .nav-list { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary); flex-direction: column; padding: 2rem; gap: 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+    .nav-list { position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary); flex-direction: column; padding: 2rem; gap: 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); z-index: 100; }
     .nav-list.active { display: flex !important; }
 
     .section { padding: 4rem 0; }
@@ -420,6 +423,8 @@ body.nav-open { overflow: hidden; }
     .carousel-slide { height: 350px; }
     .counter { padding: 3rem 1.5rem; }
     .counter-number { font-size: 3.5rem; }
+    
+    .intro-img { max-width: 200px; } /* Ajuste de intro móvil */
 }
 
 @media (max-width: 480px) {

@@ -2,42 +2,27 @@
 <html lang="es">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HS9VMKYF64"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS9VMKYF64"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-HS9VMKYF64');
-</script>
+      gtag('config', 'G-HS9VMKYF64');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Décima Novena Cuadrilla HSMN</title>
     <link rel="stylesheet" href="Style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-        rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/logo.png ">
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/logo.png">
 </head>
 
 <body>
-    <div class="video-overlay" id="videoOverlay">
-        <div class="video-container" id="videoContainer">
-            <button class="video-close-btn" onclick="closeVideo()" aria-label="Cerrar video">×</button>
-            <button class="video-mute-btn muted" id="muteBtn" onclick="toggleMute()"
-                aria-label="Activar/Desactivar sonido">
-                <span class="icon-volume-off" id="muteIcon"></span>
-            </button>
-            <video class="welcome-video" id="welcomeVideo" autoplay loop muted playsinline>
-                <source src="Videos/rumboalaguardada.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de videos.
-            </video>
-        </div>
-        <button class="skip-video-btn" onclick="closeVideo()">Saltar Video</button>
+    <div id="intro-screen" class="intro-screen">
+        <img src="Imagenes/logo.png" alt="Logo Cuadrilla 19" class="intro-img" id="intro-logo">
+        <img src="Imagenes/bannerguardada.png" alt="Señor de los Milagros" class="intro-img" id="intro-senor">
     </div>
-    <!-- Header -->
+
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -53,10 +38,16 @@
         </div>
     </header>
 
-    <!-- Navigation -->
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
+            <div class="nav-brand">
+                <img src="Imagenes/logo.png" alt="Logo" class="nav-logo-img">
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-list" id="nav-list">
                 <li><a href="#historia">Historia</a></li>
                 <li><a href="#capataces">Capataces</a></li>
@@ -69,7 +60,6 @@
         <div class="nav-overlay" id="nav-overlay"></div>
     </nav>
 
-    <!-- Historia Section -->
     <section id="historia" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Nuestra Historia</h2>
@@ -80,12 +70,12 @@
                         <h3>Fundación</h3>
                         <p>Nuestra historia inicia en el segundo año de la década de los 60´s, año en que se fundaron
                             dos honorables cuadrillas, Décima Novena y Vigésima cuadrillas de cargadores del Señor de
-                            los Milagros de Nazarenas, todo ello transcurre siendo: <br>
+                            los Milagros de Nazarenas, todo ello transcurre siendo: <br><br>
 
-                            Mayordomo: El señor Víctor H. Velasco. <br>
-                            Arzobispo: El Excelentísimo Señor Juan Landázuri Ricketts. <br>
-                            Priora: La Madre Teresa del Niño Jesús. <br>
-                            Sumo Pontífice: Papa Juan XXIII.</p>
+                            <strong>Mayordomo:</strong> El señor Víctor H. Velasco. <br>
+                            <strong>Arzobispo:</strong> El Excelentísimo Señor Juan Landázuri Ricketts. <br>
+                            <strong>Priora:</strong> La Madre Teresa del Niño Jesús. <br>
+                            <strong>Sumo Pontífice:</strong> Papa Juan XXIII.</p>
                     </div>
                 </div>
                 <div class="history-photo">
@@ -119,7 +109,7 @@
                         <p>Nuestro primer capataz instauró como valores esenciales del hermano décimo noveno el respeto,
                             la solidaridad, la unión y la disciplina, asimismo del verdadero sentido de hermandad y
                             fraternidad ya que sí o sí, el hermano que llegaba tenía que saludar a todos sin excepción,
-                            no importando clase social, antigüedad y/o raza. <br>
+                            no importando clase social, antigüedad y/o raza. <br><br>
                             Sin embargo la acción que más se recuerda es que durante las primeras misas para el proceso
                             de admisión se implantó como característica nuestra el canto de todos los hermanos, los
                             cuales deberían cantar con voz muy fuerte y hacerse sentir en todas las celebraciones
@@ -135,12 +125,11 @@
         </div>
     </section>
 
-    <!-- Capataces Section -->
-     <section id="capataces" class="section">
+    <section id="capataces" class="section">
         <div class="container">
             <h2 class="section-title">Galería de capataces</h2>
             <div class="grid">
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Nemesio Orellana.jpg" alt="Nemesio Orellana Flores" loading="lazy"/>
                     </div>
@@ -148,7 +137,7 @@
                     <h4>1962 - 1970</h4>
                     <p>Primer Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Eulogio Padilla.jpg" alt="Eulogio Padilla Ramírez" loading="lazy" />
                     </div>
@@ -156,7 +145,7 @@
                     <h4>1971</h4>
                     <p>Segundo Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Juan Dongo.jpg" alt="Juan Dongo Huando" loading="lazy" />
                     </div>
@@ -164,7 +153,7 @@
                     <h4>1972-1980</h4>
                     <p>Tercer Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Manuel Herrera.jpg" alt="Manuel Herrera Mello" loading="lazy"/>
                     </div>
@@ -172,7 +161,7 @@
                     <h4>1981-1986</h4>
                     <p>Cuarto Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Alfredo Canales.jpg" alt="Alfredo Canales Carbajal" loading="lazy" />
                     </div>
@@ -180,7 +169,7 @@
                     <h4>1987-1989</h4>
                     <p>Quinto Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Lucio Paredes.jpg" alt="Lucio Paredes Rodríguez" loading="lazy" />
                     </div>
@@ -188,7 +177,7 @@
                     <h4>1990-1998</h4>
                     <p>Sexto Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Pedro peña.jpg" alt="Pedro Peña Palomino" loading="lazy" />
                     </div>
@@ -196,7 +185,7 @@
                     <h4>1999-2007</h4>
                     <p>Séptimo Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Jose tirado.jpg" alt="José Santos Tirado Márquez" loading="lazy" />
                     </div>
@@ -204,7 +193,7 @@
                     <h4>2008-2016</h4>
                     <p>Octavo Capataz</p>
                 </div>
-                <div class="leader-card">
+                <div class="leader-card fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Calderon.jpg" alt="Juan Carlos Calderón Sánchez"  loading="lazy"/>
                     </div>
@@ -212,7 +201,7 @@
                     <h4>2017-2022</h4>
                     <p>Noveno Capataz</p>
                 </div>
-                <div class="leader-card center">
+                <div class="leader-card center fade-in">
                     <div class="leader-photo">
                         <img src="Imagenes/Jose yaya.jpg" alt="José Arturo Yaya Huapaya" loading="lazy"/>
                     </div>
@@ -229,15 +218,11 @@
                     <p>Décimo primer Capataz</p>
                 </div>
             </div>
+            </div>
 
-            <!-- Guardadas Section -->
-            <h2 class="section-title" style="margin-top: 4rem;">Nuestras Guardadas</h2>
-            <p style="text-align: center; margin-bottom: 3rem; font-style: italic; color: #6a4c93;">
-                "Las guardadas son momentos especiales de nuestra tradición"
-            </p>
-
+            <h2 class="section-title" style="margin-top: 6rem;">Nuestras Guardadas</h2>
             <div class="guardadas-container">
-                <div class="guardada-card">
+                <div class="guardada-card fade-in">
                     <div class="guardada-photo">
                         <img src="Imagenes/guardada2014.png" alt="Primera Guardada" loading="lazy"/>
                     </div>
@@ -245,12 +230,12 @@
                         <h3>Guardada 2014</h3>
                         <p>Dirigida por el capataz José Tirado Márquez</p>
                         <div class="audio-player">
-                            <p class="audio-label">Marcha de guardada: "Padre mio" Autor:"Carlos Pickling Dueñas"</p>
+                            <p class="audio-label">Marcha de guardada: "Padre mio" - Autor: Carlos Pickling Dueñas</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guardada-card">
+                <div class="guardada-card fade-in">
                     <div class="guardada-photo">
                         <img src="Imagenes/guardada2004.webp" alt="Segunda Guardada" loading="lazy"/>
                     </div>
@@ -258,13 +243,12 @@
                         <h3> Guardada 2004</h3>
                         <p>Dirigida por el capataz Pedro Peña Palomino</p>
                         <div class="audio-player">
-                            <p class="audio-label">Marcha de guardada: "Al Señor de los Milagros N° 17"
-                                Autor:"Constantino Freyre Arámbulo"</p>
+                            <p class="audio-label">Marcha de guardada: "Al Señor de los Milagros N° 17" - Autor: Constantino Freyre Arámbulo</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guardada-card">
+                <div class="guardada-card fade-in">
                     <div class="guardada-photo">
                         <img src="Imagenes/guardada1994.webp" alt="Tercera Guardada" loading="lazy"/>
                     </div>
@@ -272,50 +256,44 @@
                         <h3> Guardada 1994</h3>
                         <p>Dirigida por el capataz Lucio Paredes Rodríguez</p>
                         <div class="audio-player">
-                            <p class="audio-label">Marcha de guardada: "Al Señor de los Milagros N° 16"
-                                Autor:"Constantino Freyre Arámbulo"</p>
+                            <p class="audio-label">Marcha de guardada: "Al Señor de los Milagros N° 16" - Autor: Constantino Freyre Arámbulo</p>
                         </div>
                     </div>
                 </div> 
 
-                <div class="guardada-card">
+                <div class="guardada-card fade-in">
                     <div class="guardada-photo">
                         <img src="Imagenes/guardada 1984.jpg" alt="Cuarta Guardada" loading="lazy"/>
                     </div>
                     <div class="guardada-content">
                         <h3>Guardada 1984</h3>
                         <p>Dirigida por el capataz Juan Dongo Huando</p>
-
                     </div>
                 </div>
 
-                <div class="guardada-card">
+                <div class="guardada-card fade-in">
                     <div class="guardada-photo">
-                        <img src="Imagenes/guardada 1974.jpg" alt="Primera Guardada" loading="lazy"/>
+                        <img src="Imagenes/guardada 1974.jpg" alt="Quinta Guardada" loading="lazy"/>
                     </div>
                     <div class="guardada-content">
                         <h3>Guardada 1974</h3>
                         <p>Dirigida por el capataz Juan Dongo Huando</p>
-
                     </div>
                 </div>
 
-                <div class="guardada-card">
+                <div class="guardada-card fade-in">
                     <div class="guardada-photo">
-                        <img src="Imagenes/historia.jpg" alt="Primera Guardada" loading="lazy"/>
+                        <img src="Imagenes/historia.jpg" alt="Sexta Guardada" loading="lazy"/>
                     </div>
                     <div class="guardada-content">
                         <h3>Guardada 1964</h3>
                         <p>Dirigida por el capataz Nemesio Orellana Flores</p>
-
                     </div>
                 </div>
-
-
             </div>
+        </div>
     </section>
 
-    <!-- Contador de Hermanos -->
     <section id="hermanos" class="section">
         <div class="container">
             <h2 class="section-title">Nuestra Hermandad</h2>
@@ -329,7 +307,7 @@
                     <div class="counter-label">Hermanos Jubilados</div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card fade-in">
                 <h3>Compromiso y Participación</h3>
                 <p>Nuestra cuadrilla cuenta con hermanos comprometidos que participan activamente en todas las
                     actividades religiosas, culturales y sociales. También honramos a nuestros hermanos jubilados,
@@ -339,23 +317,21 @@
         </div>
     </section>
 
-    <!-- Cuadrilla Infantil -->
     <section id="infantil" class="section">
         <div class="container">
             <h2 class="section-title">Cuadrilla Infantil</h2>
 
             <div class="infantil-gallery">
                 <div class="infantil-photos">
-                    <div class="infantil-photo-item">
+                    <div class="infantil-photo-item fade-in">
                         <img src="Imagenes/infantil1.jpg" alt="" loading="lazy"/>
-                        <img src="Imagenes/infantil3.jpg" alt="" loading="lazy"/>
                         <p>Carguío 2024</p>
                     </div>
-                    <div class="infantil-photo-item">
+                    <div class="infantil-photo-item fade-in">
                         <img src="Imagenes/infantil5.jpg" alt="" loading="lazy"/>
                         <p>Carguío 2009</p>
                     </div>
-                    <div class="infantil-photo-item">
+                    <div class="infantil-photo-item fade-in">
                         <img src="Imagenes/infantil7.jpg" alt="" loading="lazy"/>
                         <p>Carguío 2009</p>
                     </div>
@@ -363,12 +339,12 @@
             </div>
 
             <div class="grid">
-                <div class="card">
+                <div class="card fade-in">
                     <h3>Fundación</h3>
                     <p>Fundada por 56 hermanos infantiles el<br>
                         14 de setiembre de 2002, durante el periodo de Pedro Peña.</p>
                 </div>
-                <div class="card">
+                <div class="card fade-in">
                     <h3>Formación Espiritual</h3>
                     <p>La cuadrilla infantil es el futuro de nuestra hermandad. A través de actividades lúdicas y
                         educativas, los niños aprenden sobre los valores cristianos y las tradiciones de nuestra fe.</p>
@@ -378,14 +354,13 @@
         </div>
     </section>
 
-    <!-- Galería/Carousel -->
     <section id="galeria" class="section">
         <div class="container">
             <h2 class="section-title">Galería de Momentos</h2>
-            <div class="carousel-container">
+            <div class="carousel-container fade-in">
                 <div class="carousel" id="photo-carousel">
                     <a href="https://www.facebook.com/decimanovena.cuadrillahsmn/photos_albums" target="_blank"
-                        class="carousel-slide clickable-slide">
+                        class="carousel-slide">
                         <img src="Imagenes/jornada de invitacion lince.jpg" alt="" />
                         <div class="slide-overlay">
                             <h3>Jornada de invitación</h3>
@@ -394,7 +369,7 @@
                         </div>
                     </a>
                     <a href="https://www.facebook.com/decimanovena.cuadrillahsmn/photos_albums" target="_blank"
-                        class="carousel-slide clickable-slide">
+                        class="carousel-slide">
                         <img src="Imagenes/Jornada de invitacion chorrillos.jpg" alt="" />
                         <div class="slide-overlay">
                             <h3>Jornada de invitación</h3>
@@ -403,7 +378,7 @@
                         </div>
                     </a>
                     <a href="https://www.facebook.com/decimanovena.cuadrillahsmn/photos_albums" target="_blank"
-                        class="carousel-slide clickable-slide">
+                        class="carousel-slide">
                         <img src="Imagenes/Jornada de invitacion rimac.jpg" alt="" />
                         <div class="slide-overlay">
                             <h3>Jornada de invitación</h3>
@@ -412,7 +387,7 @@
                         </div>
                     </a>
                     <a href="https://www.facebook.com/decimanovena.cuadrillahsmn/photos_albums" target="_blank"
-                        class="carousel-slide clickable-slide">
+                        class="carousel-slide">
                         <img src="Imagenes/Campeonato Confraternidad.jpg" alt="" />
                         <div class="slide-overlay">
                             <h3>Campeonato Confraternidad</h3>
@@ -421,7 +396,7 @@
                         </div>
                     </a>
                     <a href="https://www.facebook.com/decimanovena.cuadrillahsmn/photos_albums" target="_blank"
-                        class="carousel-slide clickable-slide">
+                        class="carousel-slide">
                         <img src="Imagenes/navidad 2024.jpg" alt="" />
                         <div class="slide-overlay">
                             <h3>Navidad 2024</h3>
@@ -436,12 +411,10 @@
                 <button class="carousel-btn" onclick="nextSlide()">Siguiente →</button>
             </div>
             <div class="carousel-indicators" id="indicators">
-                <!-- Indicators will be generated by JavaScript -->
-            </div>
+                </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contacto" class="footer">
         <div class="container">
             <div class="footer-content">
@@ -453,7 +426,6 @@
                     <h4>Síguenos</h4>
                     <p>Facebook: Décimo Novena Cuadrilla HSMN</p>
                     <p>Instagram: @cuadrilla19_hsmn</p>
-
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 2rem;">
@@ -465,7 +437,4 @@
     <script src="Script.js"></script>
 
 </body>
-
-
 </html>
-
