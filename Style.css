@@ -74,6 +74,8 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 2s ease-in-out, transform 3s ease-in-out;
+    /* Añade esto: */
+    object-fit: contain;
 }
 
 .show-intro {
@@ -125,10 +127,13 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 }
 
 .header-logo {
-    width: 220px;
-    height: 220px;
+    width: 320px;
+    height: 320px;
     animation: float 6s ease-in-out infinite;
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+    /* Añade esto: */
+    object-fit: contain;
+    flex-shrink: 0; /* Prohíbe que se aplaste */
 }
 
 .header-text h1 {
@@ -169,7 +174,14 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 }
 
 .nav-brand { display: flex; align-items: center; gap: 1rem; color: white; }
-.nav-logo-img { width: 60px; height: 60px; transition: transform 0.3s; }
+.nav-logo-img { 
+    width: 60px; 
+    height: 60px; 
+    transition: transform 0.3s; 
+    /* Añade esto: */
+    object-fit: contain;
+    flex-shrink: 0; /* Prohíbe que se aplaste */
+}
 .nav-logo-img:hover { transform: rotate(10deg) scale(1.1); }
 .nav-logo-text { font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 1px; }
 
@@ -505,4 +517,43 @@ body.nav-open { overflow: hidden; }
     .leader-photo { height: 220px; }
     
     .carousel-slide { height: 250px; }
+}
+
+/* =========================================
+   REDES SOCIALES (FOOTER)
+   ========================================= */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Espacio entre los botones */
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.social-btn svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0; /* LA REGLA DE ORO: Evita que el logo se achate en pantallas pequeñas */
+    transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+/* Animación al pasar el mouse */
+.social-btn:hover {
+    color: white;
+    transform: translateX(8px); /* Pequeño salto a la derecha */
+}
+
+.social-btn:hover svg {
+    stroke: var(--secondary); /* El logo toma el color morado de acento */
+    transform: scale(1.15); /* El logo crece un poquito */
 }
