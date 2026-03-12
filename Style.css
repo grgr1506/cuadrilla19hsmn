@@ -60,7 +60,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 .intro-screen {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100vh;
-    background-color: #111111; /* Fondo muy oscuro, solemne */
+    background-color: #111111;
     z-index: 99999;
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 
 .intro-img {
     position: absolute;
-    max-width: 300px; /* Tamaño de la intro */
+    max-width: 300px;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 2s ease-in-out, transform 3s ease-in-out;
@@ -201,44 +201,110 @@ h1, h2, h3, h4, .nav-list li a, .skip-video-btn, .counter-number {
 /* =========================================
    TARJETAS
    ========================================= */
-.card, .leader-card, .guardada-card {
+.card, .guardada-card {
     background: white; padding: 3rem 2rem; border-radius: 4px;
     border: 1px solid #eae8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.card:hover, .leader-card:hover, .guardada-card:hover {
+.card:hover, .guardada-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(74, 52, 103, 0.15);
 }
 .card h3 { color: var(--text-dark); margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; }
 
 /* =========================================
-   LÍDERES (CAPATACES)
+   CAPATACES - NUEVO ESTILO RECTANGULAR
    ========================================= */
 .leader-card {
-    text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    min-height: 400px; padding: 3rem 2rem; overflow: hidden;
+    background: white;
+    padding: 0; 
+    border-radius: 8px;
+    border: 1px solid #eae8f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
 .leader-photo {
-    width: 150px; height: 150px; border-radius: 50%;
-    margin: 0 auto 1.5rem; flex-shrink: 0;
-    border: 3px solid var(--primary); padding: 4px; background: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.5s ease;
+    width: 100%;
+    /* En lugar de una altura fija, usamos una proporción de retrato (3 de ancho por 4 de alto) */
+    aspect-ratio: 3 / 4; 
+    height: auto;
+    border-radius: 0; 
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #f4f4f4; /* Un fondo sutil por si la imagen tarda en cargar */
 }
-.leader-card:hover .leader-photo {
-    transform: scale(1.1) rotate(3deg);
-}
-.leader-photo img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    object-position: center top; 
-    border-radius: 50%; 
+
+.leader-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center 15%; /* Mantiene enfocada la parte de arriba (la cara) */
+    border-radius: 0;
     display: block;
+    transition: transform 0.7s ease;
+    
 }
-.leader-card h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-.leader-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+.leader-info {
+    padding: 1.5rem;
+    background: white;
+    z-index: 2;
+    text-align: center;
+}
+
+.leader-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    letter-spacing: -1px;
+}
+
+.leader-card p, .leader-card h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.leader-card h4 {
+    font-weight: bold;
+    color: var(--secondary);
+    margin-bottom: 0.3rem;
+}
+
+/* Animación de Hover más intensa */
+.leader-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(74, 52, 103, 0.2);
+    border-color: var(--secondary);
+}
+
+
+
+/* Efecto de brillo (Flash) que pasa sobre la tarjeta */
+.leader-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.leader-card:hover::after {
+    left: 150%;
+}
 
 /* =========================================
    HISTORIA CON FOTOS
@@ -424,7 +490,7 @@ body.nav-open { overflow: hidden; }
     .counter { padding: 3rem 1.5rem; }
     .counter-number { font-size: 3.5rem; }
     
-    .intro-img { max-width: 200px; } /* Ajuste de intro móvil */
+    .intro-img { max-width: 200px; }
 }
 
 @media (max-width: 480px) {
@@ -432,7 +498,11 @@ body.nav-open { overflow: hidden; }
     .header-text .subtitle { font-size: 1.2rem; }
     .header-logo { width: 130px; height: 130px; }
     .section-title { font-size: 1.8rem; }
-    .card, .leader-card { padding: 1.5rem; }
-    .leader-photo { width: 120px; height: 120px; }
+    .card { padding: 1.5rem; }
+    
+    /* Ajustes específicos móvil para el formato rectangular de capataces */
+    .leader-card { margin-bottom: 1.5rem; }
+    .leader-photo { height: 220px; }
+    
     .carousel-slide { height: 250px; }
 }
